@@ -11,20 +11,20 @@ from requests.exceptions import RequestException
 def get_one_page(city, keyword, region, page):
 	'''获取网页HTML内容并返回'''
 	paras = {
-				'jl':city,      #搜索城市
-				'kw':keyword,   #搜索关键词
-				'sm':0,         #是否打开更详细搜索选项
-				'isfilter':1,   #是否对结果过滤
-				'p':page,       #页数
-				're':region     #region的缩写，地区，2005代表海淀
-			}
+			'jl':city,      #搜索城市
+			'kw':keyword,   #搜索关键词
+			'sm':0,         #是否打开更详细搜索选项
+			'isfilter':1,   #是否对结果过滤
+			'p':page,       #页数
+			're':region     #region的缩写，地区，2005代表海淀
+		}
 	headers = {
-				'User-Agent':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-				'Host':'sou.zhaopin.com',
-				'Referer':'https://sou.zhaopin.com/jobs/searchresult.ashx?jl=%E5%8C%97%E4%BA%AC&kw=python%E5%B7%A5%E7%A8%8B%E5%B8%88&sm=0&p=1',
-				'Accept-Encoding':'gzip, deflate, br',
-				'Accept-Language':'zh-CN,zh;q=0.9'
-				}
+			'User-Agent':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+			'Host':'sou.zhaopin.com',
+			'Referer':'https://sou.zhaopin.com/jobs/searchresult.ashx?jl=%E5%8C%97%E4%BA%AC&kw=python%E5%B7%A5%E7%A8%8B%E5%B8%88&sm=0&p=1',
+			'Accept-Encoding':'gzip, deflate, br',
+			'Accept-Language':'zh-CN,zh;q=0.9'
+		}
 	url = 'https://sou.zhaopin.com/jobs/searchresult.ashx?' + urlencode(paras)
 	try:
 		#获取网页内容，返回HTML数据
